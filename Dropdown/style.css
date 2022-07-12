@@ -1,0 +1,114 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: grey;
+}
+
+.navigation {
+  position: fixed;
+  background: #fff;
+  width: 120px;
+  height: 60px;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  justify-content: space-between;
+  transition: height 0.5s, width 0.5s;
+  transition-delay: 0s, 0.75s;
+}
+
+.navigation.active {
+  width: 300px;
+  height: 400px;
+  transition: width 0.5s, height 0.5s;
+  transition-delay: 0s, 0.75s;
+}
+
+.navigation .box-user {
+  position: relative;
+  height: 60px;
+  width: 60px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  transition: 0.5s;
+  transition-delay: 0.5s;
+}
+
+.navigation.active .box-user {
+  width: calc(100% - 60px);
+  transition-delay: 0s;
+}
+
+.navigation .box-user .username {
+  white-space: nowrap;
+}
+
+.navigation .box-user .box-image {
+  position: relative;
+  min-width: 60px;
+  height: 60px;
+  background: #000;
+  border-radius: 50%;
+  border: 10px solid #fff;
+  overflow: hidden;
+}
+
+.navigation .box-user .box-image img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  /* border-radius: 50%; */
+}
+
+.navigation .menu-toggle {
+  position: relative;
+  height: 60px;
+  width: 60px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navigation .menu-toggle::before {
+  content: "";
+  position: absolute;
+  width: 32px;
+  height: 2px;
+  background: #555;
+  box-shadow: 0 10px #555;
+  transform: translateY(-10px);
+  transition: 0.5s;
+}
+
+.navigation .menu-toggle::after {
+  content: "";
+  position: absolute;
+  width: 32px;
+  height: 2px;
+  background: #555;
+  transform: translateY(10px);
+  transition: 0.5s;
+}
+
+.navigation.active .menu-toggle::before {
+  transform: translateY(0px) rotate(45deg);
+  box-shadow: 0 0 #555;
+}
+
+.navigation.active .menu-toggle::after {
+  transform: translateY(0px) rotate(-45deg);
+}
